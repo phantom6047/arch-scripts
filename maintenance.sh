@@ -3,16 +3,19 @@
 
 #!/bin/bash
 
+#specify your username below
+USER=tim
+
 # Update packages with yay
-yay -Syu --noconfirm --cleanbuild A
+sudo -u $USER yay -Syu --noconfirm 
 
 # Update firmware with fwupdmgr
-pacman -S fwupd
-fwupdmgr refresh
-fwupdmgr get-updates
-fwupdmgr upgrade
+sudo pacman -S --needed fwupd
+sudo fwupdmgr refresh --force
+sudo fwupdmgr get-updates
+sudo yes | fwupdmgr upgrade
 
 # Clear cache with pacman
-pacman -Sc
+sudo pacman -Sc --noconfirm
 
 # Add other commands below
