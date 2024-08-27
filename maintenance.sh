@@ -19,3 +19,4 @@ sudo yes | fwupdmgr upgrade
 sudo pacman -Sc --noconfirm
 
 # Add other commands below
+fastfetch
