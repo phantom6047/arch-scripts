@@ -4,6 +4,9 @@
 read -p "Enter the network interface you want to randomize (e.g., eth0, wlan0, etc.): " INTERFACE
 
 while true; do
+    # Print a blank line
+    echo
+
     # Disable the network interface
     echo "Disabling $INTERFACE..."
     sudo ip link set $INTERFACE down
@@ -16,8 +19,12 @@ while true; do
     echo "Re-enabling $INTERFACE..."
     sudo ip link set $INTERFACE up
 
+    # Display time network was reenabled. 
+    echo "Current time: $(date +"%I:%M:%S %p")"
+
     # Wait for 30 minutes before repeating the process
     echo "Waiting for 30 minutes..."
     sleep 1800
+
 done
 
